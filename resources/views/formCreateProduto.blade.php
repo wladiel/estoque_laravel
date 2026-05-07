@@ -5,21 +5,27 @@
 @endsection
 
 @section('conteudo')
+    <style>
+        .form-container {
+            width: 200px;
+            text-align: center;
+        }
+        .form-fieldset {
+            padding: 40px;
+            border: 2px solid #000;
+        }
+    </style>
     <div>
-        <h2>Cadastro de Produtos</h2>
+        <h2>Novo Produto</h2>
     </div>
-    <form action="{{route('produtos.store')}}" method="post" style="width: 300px; text-align: center;">
-        <fieldset style="padding: 40px; border: 2px solid #000;">
+    <form action="{{route('produtos.store')}}" method="post" class="form-container">
+        <fieldset class="form-fieldset">
             @csrf
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome"><br><br>
-            <label for="descricao">Descrição</label>
-            <input type="text" name="descricao" id="descricao"><br><br>
-            <label for="preco">Preço</label>
-            <input type="text" name="preco" id="preco"><br><br>
-            <label for="quantidade">Quantidade</label>
-            <input type="text" name="quantidade" id="quantidade"><br><br>
-            <button type="submit">Cadastrar</button>
+            <input type="text" name="nome" placeholder="Nome do produto"><br><br>
+            <input type="text" name="descricao" placeholder="Descrição do produto"><br><br>
+            <input type="text" name="preco" placeholder="Preço do produto"><br><br>
+            <input type="text" name="quantidade" id="quantidade" placeholder="Quantidade do produto"><br><br>
+            <button type="submit">Salvar</button>
         </fieldset>
     </form>
 @endsection

@@ -12,7 +12,7 @@ class ProdutosController extends Controller
      */
     public function index()
     {
-        $produtos = Produtos::all();
+        $produtos = Produtos::orderBy('nome', 'asc')->get();
         return view('listarProdutos', compact('produtos'));
     }
 
@@ -54,8 +54,7 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, produtos $produto)
     {
-    $produtoFind = Produtos::find($produto->id);    
-    
+    $produtoFind = Produtos::find($produto->id);
         $produtoFind->nome = $request->nome;
         $produtoFind->descricao = $request->descricao;
         $produtoFind->preco = $request->preco;
