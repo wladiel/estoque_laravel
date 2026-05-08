@@ -5,7 +5,7 @@ use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\CategoriaController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('listarProdutos');
 });
 
 Route::resource('/produtos', ProdutosController::class);

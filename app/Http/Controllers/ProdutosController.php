@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\produtos;
+use App\Models\categoria;
 use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
@@ -13,7 +14,8 @@ class ProdutosController extends Controller
     public function index()
     {
         $produtos = Produtos::orderBy('nome', 'asc')->get();
-        return view('listarProdutos', compact('produtos'));
+        $categorias = Categoria::all();
+        return view('listarProdutos', compact('produtos', 'categorias'));
     }
 
     /**
@@ -21,7 +23,8 @@ class ProdutosController extends Controller
      */
     public function create()
     {
-        return view('formCreateProduto');
+        $categorias = Categoria::all();
+        return view('formCreateProduto', compact('categorias'));
     }
 
     /**

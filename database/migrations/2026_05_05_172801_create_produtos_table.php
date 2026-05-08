@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('descricao');
             $table->decimal('preco', 10, 2);
             $table->integer('quantidade');
+            $table->foreignId('categoria_id')->references('id')->on('categorias')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
